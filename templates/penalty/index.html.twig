@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Penalty {% endblock %}
+
+{% block body %}
+    <h1>Penalty</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Amount</th>
+            <th>Cause</th>
+            <th>NumberCar</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for penalty in penalties %}
+            <tr>
+                <td>{{ penalty.amount }}</td>
+                <td>{{ penalty.cause }}</td>
+                <td>{{ penalty.numCar }}</td>
+                <td>
+                    <a href="{{ path('penalty_show', {'id': penalty.id}) }}">show</a>
+                    <a href="{{ path('penalty_edit', {'id': penalty.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('penalty_new') }}">Create new</a>
+    <h2> Penalty find</h2>
+    <form action="{{ url('penalty_find') }}" method="get">
+        <p><input name="number" type="text" pattern="[A-Za-z][0-9]{2,3}[A-Za-z][A-Za-z]"></p>
+        <p><input type="submit"></p>
+    </form>
+
+{% endblock %}

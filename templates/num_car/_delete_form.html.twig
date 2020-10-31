@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('num_car_delete', {'id': num_car.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ num_car.id) }}">
+    <button class="btn">Delete</button>
+</form>

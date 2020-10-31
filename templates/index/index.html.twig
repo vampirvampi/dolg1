@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}INDEX {% endblock %}
+
+{% block body %}
+    <h1>FULLL</h1>
+    <div><a href="{{ path('penalty_index') }}">Penalty</a></div>
+    <div> <a href="{{ path('car_index') }}">Car</a></div>
+    <div><a href="{{ path('num_car_index') }}">NumCar</a></div>
+    <div> <a href="{{ path('driver_index') }}">Driver</a></div>
+{% endblock %}
